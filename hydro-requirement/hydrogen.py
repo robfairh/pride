@@ -87,7 +87,7 @@ def hte_req(P, Te):
     dh = np.interp(Te, temp, dg_T) + np.interp(Te, temp, tds_T)
     tds = np.interp(Te, temp, tds_T) - R*(Te+273)*np.log(P)/1e3
     dg = dh - tds  # [kJ/mol]
-
+    dg /= 0.88  # electrical efficiency \eta_LHV (for LTE is 67%)
     return dg, tds
 
 
