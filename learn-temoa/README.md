@@ -36,3 +36,6 @@ don't run it cause I would over write temo_utopia.dat
 sqlite3 temoa_utopia.sqlite < temoa_utopia.sql
 
 
+RH
+RHO
+RHE

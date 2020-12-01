@@ -20,8 +20,6 @@ set  tech_production  :=       # SET TCH (partial)
  E21            # nuclear power plant
  E51            # electric storage
  E70            # diesel power plant
- RHE            # electric residential heating
- RHO            # diesel residential heating
  RL1            # residential lighting
  SRE            # crude oil processor
  TXD            # diesel powered vehicles
@@ -53,7 +51,6 @@ set  commodity_emissions  :=        # SET ENV
 	;
 
 set  commodity_demand  :=        # SET DM
- RH     # "residential heating"
  RL     # "residential lighting"
  TX     # "transportation"
 	;
@@ -69,11 +66,6 @@ param  SegFrac  :=        # PARAMETER NQHR
 	;
 
 param  DemandSpecificDistribution  :=
- utopia 	inter   day     RH  .12
- utopia 	inter   night   RH  .06
- utopia 	winter  day     RH  .5467
- utopia 	winter  night   RH  .2733
-
  utopia 	inter   day     RL  .15
  utopia 	inter   night   RL  .05
  utopia 	summer  day     RL  .15
@@ -87,8 +79,6 @@ param  CapacityToActivity  :=         # PARAMETER TCH_CAPU
  utopia 	E21          31.54
  utopia 	E51          31.54
  utopia 	E70          31.54
- utopia 	RHE           1
- utopia 	RHO           1
  utopia 	RL1           1
  utopia 	SRE           1
  utopia 	TXD           1
@@ -117,10 +107,6 @@ param  EmissionActivity  :=        # TABLE NENV_TSEP, NENV_CAP
 
 param  Demand  :=        # TABLE DM_DEM
 # year,  demand,  value
- utopia 	1990     RH       25.2
- utopia 	2000     RH       37.8
- utopia 	2010     RH       56.7
-
  utopia 	1990     RL        5.6
  utopia 	2000     RL        8.4
  utopia 	2010     RL       12.6
@@ -147,8 +133,6 @@ param  MinCapacity  :=   # roughly NRAT_RTY2
 
 param  MaxCapacity  :=   # roughly NRAT_RTY2
 # period     # tech  # value
- utopia 	1990         RHE     0
-
  utopia 	1990         TXD     0.6
  utopia 	2000         TXD     1.76
  utopia 	2010         TXD     4.76
@@ -158,8 +142,6 @@ param  LifetimeTech  :=
  utopia 	E21   40
  utopia 	E51  100
  utopia 	E70   40
- utopia 	RHE   30
- utopia 	RHO   30
  utopia 	RL1   10
  utopia 	SRE   50
  utopia 	TXD   15
@@ -190,8 +172,6 @@ param  LifetimeLoanTech  :=
  utopia 	E21               40
  utopia 	E51              100
  utopia 	E70               40
- utopia 	RHE               30
- utopia 	RHO               30
  utopia 	RL1               10
  utopia 	SRE               50
  utopia 	TXD               15
@@ -253,16 +233,6 @@ param  Efficiency  :=        # PARAMETER CON_INP2, DMD_EFF
  utopia 	ELC               E51           2000       ELC                0.720 # 1/1.3889
  utopia 	ELC               E51           2010       ELC                0.720 # 1/1.3889
 
- utopia 	ELC               RHE           1990       RH                 1     # direct translation from DMD_EFF
- utopia 	ELC               RHE           2000       RH                 1     # direct translation from DMD_EFF
- utopia 	ELC               RHE           2010       RH                 1     # direct translation from DMD_EFF
-
- utopia 	DSL               RHO           1970       RH                 0.7   # direct translation from DMD_EFF
- utopia 	DSL               RHO           1980       RH                 0.7   # direct translation from DMD_EFF
- utopia 	DSL               RHO           1990       RH                 0.7   # direct translation from DMD_EFF
- utopia 	DSL               RHO           2000       RH                 0.7   # direct translation from DMD_EFF
- utopia 	DSL               RHO           2010       RH                 0.7   # direct translation from DMD_EFF
-
  utopia 	ELC               RL1           1980       RL                 1     # direct translation from DMD_EFF
  utopia 	ELC               RL1           1990       RL                 1     # direct translation from DMD_EFF
  utopia 	ELC               RL1           2000       RL                 1     # direct translation from DMD_EFF
@@ -300,9 +270,6 @@ param  ExistingCapacity  :=        # TABLE TCH_RES
  utopia 	E70              1970            0.05
  utopia 	E70              1980            0.2
 
- utopia 	RHO              1970           12.5
- utopia 	RHO              1980           12.5
-
  utopia 	RL1              1980            5.6
 
  utopia 	TXD              1970            0.4
@@ -325,14 +292,6 @@ param  CostInvest  :=  # TABLE TCH_INVCOS
  utopia 	E70        1990           1000
  utopia 	E70        2000           1000
  utopia 	E70        2010           1000
-
- utopia 	RHE        1990             90
- utopia 	RHE        2000             90
- utopia 	RHE        2010             90
-
- utopia 	RHO        1990            100
- utopia 	RHO        2000            100
- utopia 	RHO        2010            100
 
  utopia 	SRE        1990            100
  utopia 	SRE        2000            100
@@ -382,16 +341,6 @@ param  CostFixed  :=        # TABLE TCH_FIXOM
  utopia 	2010             E70           1990              30
  utopia 	2010             E70           2000              30
  utopia 	2010             E70           2010              30
-
- utopia 	1990             RHO           1970               1
- utopia 	1990             RHO           1980               1
- utopia 	1990             RHO           1990               1
- utopia 	2000             RHO           1980               1
- utopia 	2000             RHO           1990               1
- utopia 	2000             RHO           2000               1
- utopia 	2010             RHO           1990               1
- utopia 	2010             RHO           2000               1
- utopia 	2010             RHO           2010               1
 
  utopia 	1990             RL1           1980               9.46
  utopia 	1990             RL1           1990               9.46
