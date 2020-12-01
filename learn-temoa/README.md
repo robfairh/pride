@@ -1,8 +1,8 @@
 To make the diagrams:
-python $TEMOA/data_processing/MakeGraphviz.py -i utopia-15.dat
+python $TEMOA/data_processing/MakeGraphviz.py -i utopia-00b.dat
 
 To run model:
-python $TEMOA/temoa_model/ utopia-15.dat
+python $TEMOA/temoa_model/ utopia-00a.dat
 
 
 utopia-15.dat
