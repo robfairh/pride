@@ -51,6 +51,7 @@ python $TEMOA/data_processing/MakeOutputPlots.py -i utopia-00.sqlite -r utopia -
 
 utopia-00.sql
 
+rm utopia-00.sqlite
 sqlite3 utopia-00.sqlite < utopia-00.sql
 python $TEMOA/temoa_model/ --config=config_sample2
 python $TEMOA/data_processing/MakeOutputPlots.py -i utopia-00.sqlite -r utopia -s test_run -p capacity -c electric --super
