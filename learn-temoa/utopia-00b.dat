@@ -13,13 +13,11 @@ set  tech_resource  :=    # SET SRCENCP
  IMPOIL1        # "imported crude oil"
  IMPURN1        # "imported uranium"
  IMPFEQ         # "imported fossil equivalent"
- IMPHYD         # "imported water", doesn't exist in Utopia
 	;
 
 set  tech_production  :=       # SET TCH (partial)
  E01            # coal power plant
  E21            # nuclear power plant
- E31            # hydro power
  E51            # electric storage
  E70            # diesel power plant
  RHE            # electric residential heating
@@ -34,8 +32,7 @@ set  tech_production  :=       # SET TCH (partial)
 set  tech_baseload  :=
  E01
  E21
- E31
-	;
+ 	;
 
 set  tech_storage  :=        # SET STG
  E51
@@ -48,7 +45,6 @@ set  commodity_physical  :=        # SET ENT
  FEQ     # "fossil equivalent"
  GSL     # gasoline
  HCO     # coal
- HYD     # water
  OIL     # crude oil
  URN     # uranium
 	;
@@ -91,7 +87,6 @@ param  CapacityToActivity  :=         # PARAMETER TCH_CAPU
 # tech       # value
     E01         31.54    
     E21         31.54    
-    E31         31.54    
     E51         31.54    
     E70         31.54    
     RHE         1.0    
@@ -151,17 +146,11 @@ param TechOutputSplit :=
 
 param  MinCapacity  :=   # roughly NRAT_RTY2
 # period     # tech  # value
-1990         E31         0.13    
-2000         E31         0.13    
-2010         E31         0.13    
 1990         SRE         0.1    
 	;
 
 param  MaxCapacity  :=   # roughly NRAT_RTY2
 # period     # tech  # value
-1990         E31         0.13    
-2000         E31         0.17    
-2010         E31         0.21    
 1990         RHE         0.0    
 1990         TXD         0.6    
 2000         TXD         1.76    
@@ -171,7 +160,6 @@ param  MaxCapacity  :=   # roughly NRAT_RTY2
 param  LifetimeTech  :=
     E01         40.0    
     E21         40.0    
-    E31         100.0    
     E51         100.0    
     E70         40.0    
     RHE         30.0    
@@ -181,13 +169,12 @@ param  LifetimeTech  :=
     TXD         15.0    
     TXE         15.0    
     TXG         15.0    
-    IMPDSL1         1000.0    
-    IMPGSL1         1000.0    
-    IMPHCO1         1000.0    
-    IMPOIL1         1000.0    
-    IMPURN1         1000.0    
-    IMPHYD         1000.0    
-    IMPFEQ         1000.0 
+    IMPDSL1     1000.0    
+    IMPGSL1     1000.0    
+    IMPHCO1     1000.0    
+    IMPOIL1     1000.0    
+    IMPURN1     1000.0    
+    IMPFEQ      1000.0 
 ;
 
 
@@ -202,7 +189,6 @@ param LifetimeProcess :=
 param LifetimeLoanTech := 
     E01         40.0    
     E21         40.0    
-    E31         100.0    
     E51         100.0    
     E70         40.0    
     RHE         30.0    
@@ -227,12 +213,6 @@ param CapacityFactorTech :=
     winter             night             E21         0.8    
     summer             day             E21         0.8    
     summer             night             E21         0.8    
-    inter             day             E31         0.275    
-    inter             night             E31         0.275    
-    winter             day             E31         0.275    
-    winter             night             E31         0.275    
-    summer             day             E31         0.275    
-    summer             night             E31         0.275    
     inter             day             E51         0.17    
     inter             night             E51         0.17    
     winter             day             E51         0.17    
@@ -247,21 +227,6 @@ param CapacityFactorTech :=
     summer             night             E70         0.8    
 ;
 
-param CapacityFactorProcess := 
-    inter             day             E31         2000     0.2753    
-    inter             night             E31         2000     0.2753    
-    winter             day             E31         2000     0.2753    
-    winter             night             E31         2000     0.2753    
-    summer             day             E31         2000     0.2753    
-    summer             night             E31         2000     0.2753    
-    inter             day             E31         2010     0.2756    
-    inter             night             E31         2010     0.2756    
-    winter             day             E31         2010     0.2756    
-    winter             night             E31         2010     0.2756    
-    summer             day             E31         2010     0.2756    
-    summer             night             E31         2010     0.2756    
-;
-
 param Efficiency := 
     ethos             IMPDSL1         1990         DSL         1.0    
     ethos             IMPGSL1         1990         GSL         1.0    
@@ -269,7 +234,6 @@ param Efficiency :=
     ethos             IMPOIL1         1990         OIL         1.0    
     ethos             IMPURN1         1990         URN         1.0    
     ethos             IMPFEQ         1990         FEQ         1.0    
-    ethos             IMPHYD         1990         HYD         1.0    
     HCO             E01         1960         ELC         0.32    
     HCO             E01         1970         ELC         0.32    
     HCO             E01         1980         ELC         0.32    
@@ -282,10 +246,6 @@ param Efficiency :=
     URN             E21         1990         ELC         0.4    
     URN             E21         2000         ELC         0.4    
     URN             E21         2010         ELC         0.4    
-    HYD             E31         1980         ELC         0.32    
-    HYD             E31         1990         ELC         0.32    
-    HYD             E31         2000         ELC         0.32    
-    HYD             E31         2010         ELC         0.32    
     DSL             E70         1960         ELC         0.294    
     DSL             E70         1970         ELC         0.294    
     DSL             E70         1980         ELC         0.294    
@@ -333,7 +293,6 @@ param ExistingCapacity :=
     E01         1960     0.175    
     E01         1970     0.175    
     E01         1980     0.15    
-    E31         1980     0.1    
     E51         1980     0.5    
     E70         1960     0.05    
     E70         1970     0.05    
@@ -353,10 +312,7 @@ param CostInvest :=
     E01         2010     1200.0    
     E21         1990     5000.0    
     E21         2000     5000.0    
-    E21         2010     5000.0    
-    E31         1990     3000.0    
-    E31         2000     3000.0    
-    E31         2010     3000.0    
+    E21         2010     5000.0     
     E51         1990     900.0    
     E51         2000     900.0    
     E51         2010     900.0    
@@ -402,15 +358,6 @@ param CostFixed :=
 2000         E21         2000     500.0    
 2010         E21         2000     500.0    
 2010         E21         2010     500.0    
-1990         E31         1980     75.0    
-1990         E31         1990     75.0    
-2000         E31         1980     75.0    
-2000         E31         1990     75.0    
-2000         E31         2000     75.0    
-2010         E31         1980     75.0    
-2010         E31         1990     75.0    
-2010         E31         2000     75.0    
-2010         E31         2010     75.0    
 1990         E51         1980     30.0    
 1990         E51         1990     30.0    
 2000         E51         1980     30.0    

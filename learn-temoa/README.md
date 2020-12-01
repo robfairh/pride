@@ -34,3 +34,5 @@ don't run it cause I would over write temo_utopia.dat
 # CREATE .sqlite:
 
 sqlite3 temoa_utopia.sqlite < temoa_utopia.sql
+
+
