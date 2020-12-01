@@ -1,5 +1,7 @@
 data ;
 
+# based on utopia-15.dat
+
 set  time_exist    :=  1960  1970  1980 ;
 set  time_future   :=  1990  2000 2010 2020 ;
 
@@ -16,7 +18,6 @@ set  tech_resource  :=    # SET SRCENCP
 set  tech_production  :=       # SET TCH (partial)
  E21            # nuclear power plant
  E70            # diesel power plant
- RL1            # residential lighting
  TXD            # diesel powered vehicles
 	;
 
@@ -27,7 +28,6 @@ set  tech_baseload  :=
 set  commodity_physical  :=        # SET ENT
  ethos   # "dummy commodity" to supply inputs (makes graph easier to read)
  DSL     # diesel
- ELC     # electricity
  URN     # uranium
 	;
 
@@ -45,8 +45,10 @@ param  SegFrac  :=        # PARAMETER NQHR
 # Temoa                 # Utopia
  inter  day     0.1667    # I-D
  inter  night   0.0833    # I-N
+
  summer day     0.1667    # S-D
  summer night   0.0833    # S-N
+
  winter day     0.3333    # W-D
  winter night   0.1667    # W-N
 	;
@@ -54,24 +56,25 @@ param  SegFrac  :=        # PARAMETER NQHR
 param  DemandSpecificDistribution  :=
  utopia 	inter   day     RL  .15
  utopia 	inter   night   RL  .05
+
  utopia 	summer  day     RL  .15
  utopia 	summer  night   RL  .05
+
  utopia 	winter  day     RL  .50
  utopia 	winter  night   RL  .10
 	;
 
 param  CapacityToActivity  :=         # PARAMETER TCH_CAPU
-# tech       # value
+ # region   # tech       # value
  utopia 	E21          31.54
  utopia 	E70          31.54
- utopia 	RL1           1
  utopia 	TXD           1
 	;
 
 param  GlobalDiscountRate  :=  0.05 ;  # SCALAR DISCOUNT
 
 param  EmissionActivity  :=        # TABLE NENV_TSEP, NENV_CAP
-# Emission    # input   # process      # vintage     # output      # amount released per unit activity
+# region   # Emission    # input   # process      # vintage     # output      # amount released per unit activity
  utopia 	co2           ethos     IMPDSL1        1990          DSL           0.075
  utopia 	nox           DSL       TXD            1970          TX            1
  utopia 	nox           DSL       TXD            1980          TX            1
@@ -81,7 +84,7 @@ param  EmissionActivity  :=        # TABLE NENV_TSEP, NENV_CAP
 	;
 
 param  Demand  :=        # TABLE DM_DEM
-# year,  demand,  value
+# region   # year   # demand  # value
  utopia 	1990     RL        5.6
  utopia 	2000     RL        8.4
  utopia 	2010     RL       12.6
@@ -92,7 +95,7 @@ param  Demand  :=        # TABLE DM_DEM
 	;
 
 param  MaxCapacity  :=   # roughly NRAT_RTY2
-# period     # tech  # value
+ # region  # period     # tech  # value
  utopia 	1990         TXD     0.6
  utopia 	2000         TXD     1.76
  utopia 	2010         TXD     4.76
@@ -101,27 +104,22 @@ param  MaxCapacity  :=   # roughly NRAT_RTY2
 param  LifetimeTech  :=
  utopia 	E21   40
  utopia 	E70   40
- utopia 	RL1   10
  utopia 	TXD   15
 
- # added because /every/ process in TEMOA is a technology
  utopia 	IMPDSL1         1000
  utopia 	IMPURN1         1000
 	;
 
 param  LifetimeProcess  :=        # PARAMETER TCH_LIFE
-# Temoa tech name   # vintage    # value
- utopia 	RL1                 1980         20        # for existing cap.
-
- utopia 	TXD                 1970         30        # for existing cap.
- utopia 	TXD                 1980         30        # for existing cap.
+# region  # tech            # vintage    # value
+ utopia 	TXD              1970         30        # for existing cap.
+ utopia 	TXD              1980         30        # for existing cap.
 	;
 
 param  LifetimeLoanTech  :=
 # Temoa tech name, value
  utopia 	E21               40
  utopia 	E70               40
- utopia 	RL1               10
  utopia 	TXD               15
 	;
 
@@ -144,25 +142,20 @@ param  CapacityFactorTech  :=
 	;
 
 param  Efficiency  :=        # PARAMETER CON_INP2, DMD_EFF
-# input carrier   # tech        # vintage  # output carrier   # eff. value
+# region   # input carrier   # tech        # vintage  # output carrier   # eff. value
  utopia 	ethos             IMPDSL1       1990       DSL                1
  utopia 	ethos             IMPURN1       1990       URN                1
 
- utopia 	URN               E21           1990       ELC                0.4   # 1/2.5
- utopia 	URN               E21           2000       ELC                0.4   # 1/2.5
- utopia 	URN               E21           2010       ELC                0.4   # 1/2.5
+ utopia 	URN               E21           1990       RL                0.4   # 1/2.5
+ utopia 	URN               E21           2000       RL                0.4   # 1/2.5
+ utopia 	URN               E21           2010       RL                0.4   # 1/2.5
 
- utopia 	DSL               E70           1960       ELC                0.294 # 1/3.4
- utopia 	DSL               E70           1970       ELC                0.294 # 1/3.4
- utopia 	DSL               E70           1980       ELC                0.294 # 1/3.4
- utopia 	DSL               E70           1990       ELC                0.294 # 1/3.4
- utopia 	DSL               E70           2000       ELC                0.294 # 1/3.4
- utopia 	DSL               E70           2010       ELC                0.294 # 1/3.4
-
- utopia 	ELC               RL1           1980       RL                 1     # direct translation from DMD_EFF
- utopia 	ELC               RL1           1990       RL                 1     # direct translation from DMD_EFF
- utopia 	ELC               RL1           2000       RL                 1     # direct translation from DMD_EFF
- utopia 	ELC               RL1           2010       RL                 1     # direct translation from DMD_EFF
+ utopia 	DSL               E70           1960       RL                0.294 # 1/3.4
+ utopia 	DSL               E70           1970       RL                0.294 # 1/3.4
+ utopia 	DSL               E70           1980       RL                0.294 # 1/3.4
+ utopia 	DSL               E70           1990       RL                0.294 # 1/3.4
+ utopia 	DSL               E70           2000       RL                0.294 # 1/3.4
+ utopia 	DSL               E70           2010       RL                0.294 # 1/3.4
 
  utopia 	DSL               TXD           1970       TX                 0.231 # direct translation from DMD_EFF
  utopia 	DSL               TXD           1980       TX                 0.231 # direct translation from DMD_EFF
@@ -172,20 +165,17 @@ param  Efficiency  :=        # PARAMETER CON_INP2, DMD_EFF
 	;
 
 param  ExistingCapacity  :=        # TABLE TCH_RES
-# tech           # vintage       # capacity amount
-
+# region  # tech           # vintage       # capacity amount
  utopia 	E70              1960            0.05
  utopia 	E70              1970            0.05
  utopia 	E70              1980            0.2
-
- utopia 	RL1              1980            5.6
 
  utopia 	TXD              1970            0.4
  utopia 	TXD              1980            0.2
 	;
 
 param  CostInvest  :=  # TABLE TCH_INVCOS
-# tech     # vintage      # value
+# region  # tech     # vintage      # value
  utopia 	E21        1990           5000
  utopia 	E21        2000           5000
  utopia 	E21        2010           5000
@@ -200,7 +190,7 @@ param  CostInvest  :=  # TABLE TCH_INVCOS
 ;
 
 param  CostFixed  :=        # TABLE TCH_FIXOM
-# period         # tech        # vintage       # value
+# region  # period         # tech        # vintage       # value
  utopia 	1990             E21           1990             500
  utopia 	2000             E21           1990             500
  utopia 	2010             E21           1990             500
@@ -221,11 +211,6 @@ param  CostFixed  :=        # TABLE TCH_FIXOM
  utopia 	2010             E70           2000              30
  utopia 	2010             E70           2010              30
 
- utopia 	1990             RL1           1980               9.46
- utopia 	1990             RL1           1990               9.46
- utopia 	2000             RL1           2000               9.46
- utopia 	2010             RL1           2010               9.46
-
  utopia 	1990             TXD           1970              52
  utopia 	1990             TXD           1980              52
  utopia 	1990             TXD           1990              52
@@ -237,7 +222,7 @@ param  CostFixed  :=        # TABLE TCH_FIXOM
 	;
 
 param  CostVariable  :=        # TABLE NSEP_COST1, TCH_VAROM
-# period   # technology            # vintage   # value
+# region   # period   # technology            # vintage   # value
  utopia 	1990       IMPDSL1                 1990         10
  utopia 	2000       IMPDSL1                 1990         10
  utopia 	2010       IMPDSL1                 1990         10

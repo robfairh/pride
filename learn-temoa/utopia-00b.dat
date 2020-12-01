@@ -14,7 +14,6 @@ set  tech_resource  :=    # SET SRCENCP
 set  tech_production  :=       # SET TCH (partial)
  E21            # nuclear power plant
  E70            # diesel power plant
- RL1            # residential lighting
  TXD            # diesel powered vehicles
 	;
 
@@ -63,7 +62,6 @@ param  CapacityToActivity  :=         # PARAMETER TCH_CAPU
     E21         31.54    
     E70         31.54    
 
-    RL1         1.0    
     TXD         1.0    
 	;
 
@@ -100,7 +98,6 @@ param  MaxCapacity  :=   # roughly NRAT_RTY2
 param  LifetimeTech  :=
     E21         40.0    
     E70         40.0    
-    RL1         10.0    
     TXD         15.0    
 
     IMPDSL1     1000.0    
@@ -109,7 +106,6 @@ param  LifetimeTech  :=
 
 
 param LifetimeProcess := 
-    RL1         1980     20.0    
     TXD         1970     30.0    
     TXD         1980     30.0    
 ;
@@ -117,7 +113,6 @@ param LifetimeProcess :=
 param LifetimeLoanTech := 
     E21         40.0    
     E70         40.0    
-    RL1         10.0    
     TXD         15.0    
 ;
 
@@ -141,20 +136,17 @@ param Efficiency :=
     ethos             IMPDSL1         1990         DSL         1.0    
     ethos             IMPURN1         1990         URN         1.0    
 
-    URN             E21         1990         ELC         0.4    
-    URN             E21         2000         ELC         0.4    
-    URN             E21         2010         ELC         0.4    
-    DSL             E70         1960         ELC         0.294    
-    DSL             E70         1970         ELC         0.294    
-    DSL             E70         1980         ELC         0.294    
-    DSL             E70         1990         ELC         0.294    
-    DSL             E70         2000         ELC         0.294    
-    DSL             E70         2010         ELC         0.294    
+    URN             E21         1990         RL         0.4    
+    URN             E21         2000         RL         0.4    
+    URN             E21         2010         RL         0.4    
 
-    ELC             RL1         1980         RL         1.0    
-    ELC             RL1         1990         RL         1.0    
-    ELC             RL1         2000         RL         1.0    
-    ELC             RL1         2010         RL         1.0    
+    DSL             E70         1960         RL         0.294    
+    DSL             E70         1970         RL         0.294    
+    DSL             E70         1980         RL         0.294    
+    DSL             E70         1990         RL         0.294    
+    DSL             E70         2000         RL         0.294    
+    DSL             E70         2010         RL         0.294    
+
     DSL             TXD         1970         TX         0.231    
     DSL             TXD         1980         TX         0.231    
     DSL             TXD         1990         TX         0.231    
@@ -166,7 +158,6 @@ param ExistingCapacity :=
     E70         1960     0.05    
     E70         1970     0.05    
     E70         1980     0.2     
-    RL1         1980     5.6    
     TXD         1970     0.4    
     TXD         1980     0.2     
 ;
@@ -205,10 +196,6 @@ param CostFixed :=
 2010         E70         1990     30.0    
 2010         E70         2000     30.0    
 2010         E70         2010     30.0    
-1990         RL1         1980     9.46    
-1990         RL1         1990     9.46    
-2000         RL1         2000     9.46    
-2010         RL1         2010     9.46    
 1990         TXD         1970     52.0    
 1990         TXD         1980     52.0    
 1990         TXD         1990     52.0    
