@@ -1,5 +1,8 @@
 data ;
 
+# based on utopia-15.dat
+# and on temoa_utopia_old.dat
+
 set  time_exist    :=  1960  1970  1980 ;
 set  time_future   :=  1990  2000 2010 2020 ;
 

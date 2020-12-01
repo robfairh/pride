@@ -1,25 +1,19 @@
-To make the diagrams:
-python $TEMOA/data_processing/MakeGraphviz.py -i utopia-00b.dat
 
-To run model:
-python $TEMOA/temoa_model/ utopia-00a.dat
-
-
-utopia-15.dat
+* utopia-15.dat
 
 python $TEMOA/data_processing/MakeGraphviz.py -i utopia-15.dat
 doesn't work
 python $TEMOA/temoa_model/ utopia-15.dat
 works
 
-temoa_utopia.dat
+* temoa_utopia_old.dat
 
-python $TEMOA/data_processing/MakeGraphviz.py -i temoa_utopia.dat
+python $TEMOA/data_processing/MakeGraphviz.py -i temoa_utopia_old.dat
 works
-python $TEMOA/temoa_model/ temoa_utopia.dat
+python $TEMOA/temoa_model/ temoa_utopia_old.dat
 doesn't work
 
-temoa_utopia.sqlite
+* temoa_utopia.sqlite
 
 python $TEMOA/data_processing/MakeGraphviz.py -i temoa_utopia.sqlite
 works
@@ -28,12 +22,24 @@ requests the .dat
 
 python $TEMOA/temoa_model/ --config=config_sample
 works
-it creates the .dat file
-don't run it cause I would over write temo_utopia.dat
+it creates a .dat file
 
-# CREATE .sqlite:
+# Input files:
+
+To run model:
+python $TEMOA/temoa_model/ utopia-00a.dat
+
+To make the diagrams:
+python $TEMOA/data_processing/MakeGraphviz.py -i utopia-00b.dat
+
+# Create .sqlite:
 
 sqlite3 temoa_utopia.sqlite < temoa_utopia.sql
 
-ELC
-RL1
+# Plot outputs
+
+python $TEMOA/data_processing/MakeOutputPlots.py -h
+
+python $TEMOA/data_processing/MakeOutputPlots.py -i temoa_utopia.sqlite -r utopia -s test_run -p capacity -c electric --super
+
+outputs from ran .sqlite
