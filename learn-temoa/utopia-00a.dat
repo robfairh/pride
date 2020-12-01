@@ -11,14 +11,12 @@ set regions := utopia ;
 set  tech_resource  :=    # SET SRCENCP
  IMPDSL1        # "imported diesel"
  IMPGSL1        # "imported gasoline"
- IMPHCO1        # "imported coal"
  IMPOIL1        # "imported crude oil"
  IMPURN1        # "imported uranium"
  IMPFEQ         # "imported fossil equivalent"
 	;
 
 set  tech_production  :=       # SET TCH (partial)
- E01            # coal power plant
  E21            # nuclear power plant
  E51            # electric storage
  E70            # diesel power plant
@@ -32,7 +30,6 @@ set  tech_production  :=       # SET TCH (partial)
 	;
 
 set  tech_baseload  :=
- E01
  E21
  	;
 
@@ -46,7 +43,6 @@ set  commodity_physical  :=        # SET ENT
  ELC     # electricity
  FEQ     # "fossil equivalent"
  GSL     # gasoline
- HCO     # coal
  OIL     # crude oil
  URN     # uranium
 	;
@@ -88,7 +84,6 @@ param  DemandSpecificDistribution  :=
 
 param  CapacityToActivity  :=         # PARAMETER TCH_CAPU
 # tech       # value
- utopia 	E01          31.54
  utopia 	E21          31.54
  utopia 	E51          31.54
  utopia 	E70          31.54
@@ -107,7 +102,6 @@ param  EmissionActivity  :=        # TABLE NENV_TSEP, NENV_CAP
 # Emission    # input   # process      # vintage     # output      # amount released per unit activity
  utopia 	co2           ethos     IMPDSL1        1990          DSL           0.075
  utopia 	co2           ethos     IMPGSL1        1990          GSL           0.075
- utopia 	co2           ethos     IMPHCO1        1990          HCO           0.089
  utopia 	co2           ethos     IMPOIL1        1990          OIL           0.075
  utopia 	nox           DSL       TXD            1970          TX            1
  utopia 	nox           DSL       TXD            1980          TX            1
@@ -161,7 +155,6 @@ param  MaxCapacity  :=   # roughly NRAT_RTY2
 	;
 
 param  LifetimeTech  :=
- utopia 	E01   40
  utopia 	E21   40
  utopia 	E51  100
  utopia 	E70   40
@@ -176,7 +169,6 @@ param  LifetimeTech  :=
  # added because /every/ process in TEMOA is a technology
  utopia 	IMPDSL1         1000
  utopia 	IMPGSL1         1000
- utopia 	IMPHCO1         1000
  utopia 	IMPOIL1         1000
  utopia 	IMPURN1         1000
  utopia 	IMPFEQ          1000
@@ -195,7 +187,6 @@ param  LifetimeProcess  :=        # PARAMETER TCH_LIFE
 
 param  LifetimeLoanTech  :=
 # Temoa tech name, value
- utopia 	E01               40
  utopia 	E21               40
  utopia 	E51              100
  utopia 	E70               40
@@ -210,12 +201,6 @@ param  LifetimeLoanTech  :=
 
 param  CapacityFactorTech  :=
 # season # day   # tech  # value
- utopia 	inter    day     E01     0.8
- utopia 	inter    night   E01     0.8
- utopia 	winter   day     E01     0.8
- utopia 	winter   night   E01     0.8
- utopia 	summer   day     E01     0.8
- utopia 	summer   night   E01     0.8
 
  utopia 	inter    day     E21     0.8
  utopia 	inter    night   E21     0.8
@@ -243,18 +228,10 @@ param  Efficiency  :=        # PARAMETER CON_INP2, DMD_EFF
 # input carrier   # tech        # vintage  # output carrier   # eff. value
  utopia 	ethos             IMPDSL1       1990       DSL                1
  utopia 	ethos             IMPGSL1       1990       GSL                1
- utopia 	ethos             IMPHCO1       1990       HCO                1
  utopia 	ethos             IMPOIL1       1990       OIL                1
  utopia 	ethos             IMPURN1       1990       URN                1
 
  utopia 	ethos             IMPFEQ        1990       FEQ                1
-
- utopia 	HCO               E01           1960       ELC                0.32  # 1/3.125
- utopia 	HCO               E01           1970       ELC                0.32  # 1/3.125
- utopia 	HCO               E01           1980       ELC                0.32  # 1/3.125
- utopia 	HCO               E01           1990       ELC                0.32  # 1/3.125
- utopia 	HCO               E01           2000       ELC                0.32  # 1/3.125
- utopia 	HCO               E01           2010       ELC                0.32  # 1/3.125
 
  utopia 	FEQ               E21           1990       ELC                0.32  # 1/3.125
  utopia 	FEQ               E21           2000       ELC                0.32  # 1/3.125
@@ -317,10 +294,6 @@ param  Efficiency  :=        # PARAMETER CON_INP2, DMD_EFF
 
 param  ExistingCapacity  :=        # TABLE TCH_RES
 # tech           # vintage       # capacity amount
- utopia 	E01              1960            0.175
- utopia 	E01              1970            0.175
- utopia 	E01              1980            0.15
-
  utopia 	E51              1980            0.5
 
  utopia 	E70              1960            0.05
@@ -341,10 +314,6 @@ param  ExistingCapacity  :=        # TABLE TCH_RES
 
 param  CostInvest  :=  # TABLE TCH_INVCOS
 # tech     # vintage      # value
- utopia 	E01        1990           2000
- utopia 	E01        2000           1300
- utopia 	E01        2010           1200
-
  utopia 	E21        1990           5000
  utopia 	E21        2000           5000
  utopia 	E21        2010           5000
@@ -384,19 +353,6 @@ param  CostInvest  :=  # TABLE TCH_INVCOS
 
 param  CostFixed  :=        # TABLE TCH_FIXOM
 # period         # tech        # vintage       # value
- utopia 	1990             E01           1960              40
- utopia 	1990             E01           1970              40
- utopia 	1990             E01           1980              40
- utopia 	1990             E01           1990              40
- utopia 	2000             E01           1970              70
- utopia 	2000             E01           1980              70
- utopia 	2000             E01           1990              70
- utopia 	2000             E01           2000              70
- utopia 	2010             E01           1980             100
- utopia 	2010             E01           1990             100
- utopia 	2010             E01           2000             100
- utopia 	2010             E01           2010             100
-
  utopia 	1990             E21           1990             500
  utopia 	2000             E21           1990             500
  utopia 	2010             E21           1990             500
@@ -475,28 +431,12 @@ param  CostVariable  :=        # TABLE NSEP_COST1, TCH_VAROM
  utopia 	1990       IMPGSL1                 1990         15
  utopia 	2000       IMPGSL1                 1990         15
  utopia 	2010       IMPGSL1                 1990         15
- utopia 	1990       IMPHCO1                 1990          2
- utopia 	2000       IMPHCO1                 1990          2
- utopia 	2010       IMPHCO1                 1990          2
  utopia 	1990       IMPOIL1                 1990          8
  utopia 	2000       IMPOIL1                 1990          8
  utopia 	2010       IMPOIL1                 1990          8
  utopia 	1990       IMPURN1                 1990          2
  utopia 	2000       IMPURN1                 1990          2
  utopia 	2010       IMPURN1                 1990          2
-
- utopia 	1990       E01                     1960          0.3
- utopia 	1990       E01                     1970          0.3
- utopia 	1990       E01                     1980          0.3
- utopia 	1990       E01                     1990          0.3
- utopia 	2000       E01                     1970          0.3
- utopia 	2000       E01                     1980          0.3
- utopia 	2000       E01                     1990          0.3
- utopia 	2000       E01                     2000          0.3
- utopia 	2010       E01                     1980          0.3
- utopia 	2010       E01                     1990          0.3
- utopia 	2010       E01                     2000          0.3
- utopia 	2010       E01                     2010          0.3
 
  utopia 	1990       E21                     1990          1.5
  utopia 	2000       E21                     1990          1.5
