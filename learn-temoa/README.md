@@ -1,3 +1,4 @@
+conda activate temoa-py3
 
 * utopia-15.dat
 
@@ -24,7 +25,7 @@ python $TEMOA/temoa_model/ --config=config_sample
 works
 it creates a .dat file
 
-# Input files:
+# My input files:
 
 To run model:
 python $TEMOA/temoa_model/ utopia-00a.dat
@@ -42,12 +43,7 @@ python $TEMOA/data_processing/MakeOutputPlots.py -h
 
 python $TEMOA/data_processing/MakeOutputPlots.py -i temoa_utopia.sqlite -r utopia -s test_run -p capacity -c electric --super
 
-outputs from ran .sqlite
-
-
-python $TEMOA/data_processing/MakeOutputPlots.py -i utopia-00.sqlite -r utopia -s test_run -p capacity -c electric --super
-
-# Input files:
+# My input files:
 
 utopia-00.sql
 
@@ -55,3 +51,10 @@ rm utopia-00.sqlite
 sqlite3 utopia-00.sqlite < utopia-00.sql
 python $TEMOA/temoa_model/ --config=config_sample2
 python $TEMOA/data_processing/MakeOutputPlots.py -i utopia-00.sqlite -r utopia -s test_run -p capacity -c electric --super
+
+rm utopia-01.sqlite
+sqlite3 utopia-01.sqlite < utopia-01.sql
+python $TEMOA/data_processing/MakeGraphviz.py -i utopia-01.sqlite
+
+python $TEMOA/temoa_model/ --config=config_sample3
+python $TEMOA/data_processing/MakeOutputPlots.py -i utopia-01.sqlite -r utopia -s test_run -p capacity -c electric --super
