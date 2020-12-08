@@ -8,19 +8,19 @@
 # Input File (Mandatory)
 # Input can be a .sqlite or .dat file
 # Both relative path and absolute path are accepted
---input=04_uiuc.sqlite
+--input=data_files/bau_uiuc.sqlite
 
 # Output File (Mandatory)
 # The output file must be a existing .sqlite file
---output=04_uiuc.sqlite
+--output=data_files/bau_uiuc.sqlite
 
 # Scenario Name (Mandatory)
 # This scenario name is used to store results within the output .sqlite file
---scenario=scenario04
+--scenario=bau
 
 # Path to the “db_io” folder (Mandatory)
 # This is the location where database files reside
---path_to_db_io=uiuc
+--path_to_db_io=data_files
 
 # Spreadsheet Output (Optional)
 # Direct model output to a spreadsheet
