@@ -1,0 +1,430 @@
+(temoa-py3) roberto ~/github/pride/learn-temoa/uiuc (temoa-scratch) $ python $TEMOA/temoa_model/ --config=data_files/run_mga_scenario3.txt
+
+1 .db DD file(s) converted
+
+-------------------------
+              Config file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/run_mga_scenario3.txt
+               Input file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/03_uiuc_mga.dat
+              Output file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/03_uiuc_mga.sqlite
+                 Scenario: scenario03
+       Spreadsheet output: False
+            Myopic scheme: False
+  Retain myopic databases: False
+
+-------------------------
+   Citation output status: None
+              NEOS status: False
+    Version output status: False
+
+-------------------------
+   Selected solver status: cbc
+   Solver LP write status: False
+    Pyomo LP write status: True
+
+-------------------------
+          MGA slack value: 0.25
+      MGA # of iterations: 4
+     MGA weighting method: integer
+**NOTE: If you are performing MGA runs, navigate to the DAT file and make any modifications to the MGA sets before proceeding.
+Please press enter to continue or Ctrl+C to quit.
+Notice: Using the CBC solver interface.
+Continue Operation? [Press enter to continue or CTRL+C to abort]
+
+
+Solver will write file: scenario03.lp
+
+[        ] Reading data files.Exeception found in create_temoa_instance
+ERROR: Token error Value ? Unsure.        
+    GAS             ABBOTT         2020         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2021         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2022         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2023         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2024         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2025         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2026         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2027         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2028         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2029         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2030         STM         1.0         Converts steam to steam? Unsure.        
+    STM             TURBINE         2000         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2020         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2021         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2022         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2023         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2024         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2025         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2026         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2027         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2028         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2029         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2030         ELC         0.33         converts STM to ELC        
+    ethos             NUCLEAR         2000         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2020         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2021         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2022         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2023         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2024         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2025         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2026         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2027         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2028         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2029         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2030         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             IMPWIND         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2030         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2030         ELC         1.0         pure electricity imports        
+    ELC             UL         2000         UELC         1.0                 
+    ELC             UL         2020         UELC         1.0                 
+    ELC             UL         2021         UELC         1.0                 
+    ELC             UL         2022         UELC         1.0                 
+    ELC             UL         2023         UELC         1.0                 
+    ELC             UL         2024         UELC         1.0                 
+    ELC             UL         2025         UELC         1.0                 
+    ELC             UL         2026         UELC         1.0                 
+    ELC             UL         2027         UELC         1.0                 
+    ELC             UL         2028         UELC         1.0                 
+    ELC             UL         2029         UELC         1.0                 
+    ELC             UL         2030         UELC         1.0                 
+    STM             UH         2000         USTM         1.0                 
+    STM             UH         2020         USTM         1.0                 
+    STM             UH         2021         USTM         1.0                 
+    STM             UH         2022         USTM         1.0                 
+    STM             UH         2023         USTM         1.0                 
+    STM             UH         2024         USTM         1.0                 
+    STM             UH         2025         USTM         1.0                 
+    STM             UH         2026         USTM         1.0                 
+    STM             UH         2027         USTM         1.0                 
+    STM             UH         2028         USTM         1.0                 
+    STM             UH         2029         USTM         1.0                 
+    STM             UH         2030         USTM         1.0                 
+;
+
+param ExistingCapacity := 
+    IMPELC         2020     60.0         units: MWe        
+    ABBOTT         2000     334.0         units: MWth        
+    TURBINE         2000     85.0         units: MWe        
+    IMPWIND         2016     8.6         units: MWe        
+    IMPSOL         2016     4.68         units: MWe        
+;
+
+param CostInvest := 
+    ABBOTT         2021     0.735         M$/MWth        
+    IMPSOL         2021     1.66         M$/MWe        
+    IMPWIND         2021     1.75         M$/MWe        
+    NUCLEAR         2021     5.945         M$/MWth        
+;
+
+param CostVariable := 
+2021         NUCLEAR         2021     0.027         M$/GWh        
+2021         ABBOTT         2000     0.0553         M$/GWh        
+2021         TURBINE         2000     0.03         M$/GWh        
+2021         IMPELC         2020     0.13         M$/GWh        
+2021         IMPWIND         2016     0.0384         M$/GWh        
+2021         IMPSOL         2016     0.196         M$/GWh        
+;
+
+set tech_mga :=
+ABBOTT
+IMPELC
+IMPNATGAS
+IMPSOL
+IMPWIND
+NUCLEAR
+TURBINE
+UH
+UL
+;
+
+ Line 337 Column 16573ERROR: Token error Value ? Unsure.        
+    GAS             ABBOTT         2020         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2021         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2022         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2023         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2024         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2025         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2026         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2027         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2028         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2029         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2030         STM         1.0         Converts steam to steam? Unsure.        
+    STM             TURBINE         2000         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2020         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2021         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2022         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2023         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2024         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2025         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2026         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2027         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2028         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2029         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2030         ELC         0.33         converts STM to ELC        
+    ethos             NUCLEAR         2000         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2020         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2021         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2022         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2023         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2024         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2025         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2026         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2027         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2028         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2029         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2030         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             IMPWIND         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2030         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2030         ELC         1.0         pure electricity imports        
+    ELC             UL         2000         UELC         1.0                 
+    ELC             UL         2020         UELC         1.0                 
+    ELC             UL         2021         UELC         1.0                 
+    ELC             UL         2022         UELC         1.0                 
+    ELC             UL         2023         UELC         1.0                 
+    ELC             UL         2024         UELC         1.0                 
+    ELC             UL         2025         UELC         1.0                 
+    ELC             UL         2026         UELC         1.0                 
+    ELC             UL         2027         UELC         1.0                 
+    ELC             UL         2028         UELC         1.0                 
+    ELC             UL         2029         UELC         1.0                 
+    ELC             UL         2030         UELC         1.0                 
+    STM             UH         2000         USTM         1.0                 
+    STM             UH         2020         USTM         1.0                 
+    STM             UH         2021         USTM         1.0                 
+    STM             UH         2022         USTM         1.0                 
+    STM             UH         2023         USTM         1.0                 
+    STM             UH         2024         USTM         1.0                 
+    STM             UH         2025         USTM         1.0                 
+    STM             UH         2026         USTM         1.0                 
+    STM             UH         2027         USTM         1.0                 
+    STM             UH         2028         USTM         1.0                 
+    STM             UH         2029         USTM         1.0                 
+    STM             UH         2030         USTM         1.0                 
+;
+
+param ExistingCapacity := 
+    IMPELC         2020     60.0         units: MWe        
+    ABBOTT         2000     334.0         units: MWth        
+    TURBINE         2000     85.0         units: MWe        
+    IMPWIND         2016     8.6         units: MWe        
+    IMPSOL         2016     4.68         units: MWe        
+;
+
+param CostInvest := 
+    ABBOTT         2021     0.735         M$/MWth        
+    IMPSOL         2021     1.66         M$/MWe        
+    IMPWIND         2021     1.75         M$/MWe        
+    NUCLEAR         2021     5.945         M$/MWth        
+;
+
+param CostVariable := 
+2021         NUCLEAR         2021     0.027         M$/GWh        
+2021         ABBOTT         2000     0.0553         M$/GWh        
+2021         TURBINE         2000     0.03         M$/GWh        
+2021         IMPELC         2020     0.13         M$/GWh        
+2021         IMPWIND         2016     0.0384         M$/GWh        
+2021         IMPSOL         2016     0.196         M$/GWh        
+;
+
+set tech_mga :=
+ABBOTT
+IMPELC
+IMPNATGAS
+IMPSOL
+IMPWIND
+NUCLEAR
+TURBINE
+UH
+UL
+;
+
+ Line 337 Column 16573
+Exiting Temoa ...
+Traceback (most recent call last):
+  File "/home/roberto/projects/temoa//temoa_model/temoa_run.py", line 265, in createAndSolve
+    for k in self.solveWithMGA():
+  File "/home/roberto/projects/temoa//temoa_model/temoa_run.py", line 159, in solveWithMGA
+    for k in temoaInstance1.create_temoa_instance():
+  File "/home/roberto/projects/temoa//temoa_model/temoa_run.py", line 356, in create_temoa_instance
+    raise model_exc
+  File "/home/roberto/projects/temoa//temoa_model/temoa_run.py", line 335, in create_temoa_instance
+    modeldata.load( filename=fname )
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/pyomo/core/base/DataPortal.py", line 164, in load
+    status = self._data_manager.process(self._model, self._data, self._default)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/pyomo/core/plugins/data/datacommands.py", line 66, in process
+    _process_include(['include', self.filename], model, data, default, self.options)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/pyomo/core/data/process_data.py", line 589, in _process_include
+    scenarios = parse_data_commands(filename=cmd[1])
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/pyomo/core/data/parse_datacmds.py", line 502, in parse_data_commands
+    dat_yaccer.parse(data, lexer=dat_lexer, debug=debug)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/ply/yacc.py", line 333, in parse
+    return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/ply/yacc.py", line 1063, in parseopt_notrack
+    lookahead = get_token()     # Get the next token
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/ply/lex.py", line 386, in token
+    newtok = self.lexerrorf(tok)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/pyomo/core/data/parse_datacmds.py", line 155, in t_error
+    raise IOError("ERROR: Token %s Value %s Line %s Column %s" % (t.type, t.value, t.lineno, t.lexpos))
+OSError: ERROR: Token error Value ? Unsure.        
+    GAS             ABBOTT         2020         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2021         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2022         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2023         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2024         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2025         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2026         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2027         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2028         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2029         STM         1.0         Converts steam to steam? Unsure.        
+    GAS             ABBOTT         2030         STM         1.0         Converts steam to steam? Unsure.        
+    STM             TURBINE         2000         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2020         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2021         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2022         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2023         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2024         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2025         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2026         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2027         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2028         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2029         ELC         0.33         converts STM to ELC        
+    STM             TURBINE         2030         ELC         0.33         converts STM to ELC        
+    ethos             NUCLEAR         2000         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2020         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2021         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2022         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2023         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2024         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2025         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2026         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2027         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2028         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2029         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             NUCLEAR         2030         STM         1.0         Converts steam to steam? Unsure.        
+    ethos             IMPWIND         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPWIND         2030         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2016         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2020         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2021         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2022         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2023         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2024         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2025         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2026         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2027         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2028         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2029         ELC         1.0         pure electricity imports        
+    ethos             IMPSOL         2030         ELC         1.0         pure electricity imports        
+    ELC             UL         2000         UELC         1.0                 
+    ELC             UL         2020         UELC         1.0                 
+    ELC             UL         2021         UELC         1.0                 
+    ELC             UL         2022         UELC         1.0                 
+    ELC             UL         2023         UELC         1.0                 
+    ELC             UL         2024         UELC         1.0                 
+    ELC             UL         2025         UELC         1.0                 
+    ELC             UL         2026         UELC         1.0                 
+    ELC             UL         2027         UELC         1.0                 
+    ELC             UL         2028         UELC         1.0                 
+    ELC             UL         2029         UELC         1.0                 
+    ELC             UL         2030         UELC         1.0                 
+    STM             UH         2000         USTM         1.0                 
+    STM             UH         2020         USTM         1.0                 
+    STM             UH         2021         USTM         1.0                 
+    STM             UH         2022         USTM         1.0                 
+    STM             UH         2023         USTM         1.0                 
+    STM             UH         2024         USTM         1.0                 
+    STM             UH         2025         USTM         1.0                 
+    STM             UH         2026         USTM         1.0                 
+    STM             UH         2027         USTM         1.0                 
+    STM             UH         2028         USTM         1.0                 
+    STM             UH         2029         USTM         1.0                 
+    STM             UH         2030         USTM         1.0                 
+;
+
+param ExistingCapacity := 
+    IMPELC         2020     60.0         units: MWe        
+    ABBOTT         2000     334.0         units: MWth        
+    TURBINE         2000     85.0         units: MWe        
+    IMPWIND         2016     8.6         units: MWe        
+    IMPSOL         2016     4.68         units: MWe        
+;
+
+param CostInvest := 
+    ABBOTT         2021     0.735         M$/MWth        
+    IMPSOL         2021     1.66         M$/MWe        
+    IMPWIND         2021     1.75         M$/MWe        
+    NUCLEAR         2021     5.945         M$/MWth        
+;
+
+param CostVariable := 
+2021         NUCLEAR         2021     0.027         M$/GWh        
+2021         ABBOTT         2000     0.0553         M$/GWh        
+2021         TURBINE         2000     0.03         M$/GWh        
+2021         IMPELC         2020     0.13         M$/GWh        
+2021         IMPWIND         2016     0.0384         M$/GWh        
+2021         IMPSOL         2016     0.196         M$/GWh        
+;
+
+set tech_mga :=
+ABBOTT
+IMPELC
+IMPNATGAS
+IMPSOL
+IMPWIND
+NUCLEAR
+TURBINE
+UH
+UL
+;
+
+ Line 337 Column 16573

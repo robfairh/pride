@@ -1,0 +1,184 @@
+(temoa-py3) roberto ~/github/pride/learn-temoa/uiuc (temoa-scratch) $ snakemake --cores=12
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	make_plots
+	1	make_temoa_input
+	1	temoa_run
+	6
+Select jobs to execute...
+
+[Tue Dec  8 11:17:58 2020]
+rule make_temoa_input:
+    input: data_files/01_uiuc.sql
+    output: data_files/01_uiuc.sqlite
+    jobid: 1
+    wildcards: db=01_uiuc
+
+
+[Tue Dec  8 11:17:58 2020]
+rule temoa_run:
+    input: data_files/run_scenario01.txt
+    output: data_files/01_uiuc_scenario01_model/scenario01_OutputLog.log, data_files/01_uiuc_scenario01_model/scenario01.lp
+    jobid: 2
+    wildcards: db=01_uiuc, scenario=scenario01
+
+[Tue Dec  8 11:17:58 2020]
+Finished job 1.
+1 of 6 steps (17%) done
+
+1 .db DD file(s) converted
+
+-------------------------
+              Config file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/run_scenario01.txt
+               Input file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/01_uiuc.dat
+              Output file: /home/roberto/github/pride/learn-temoa/uiuc/data_files/01_uiuc.sqlite
+                 Scenario: scenario01
+       Spreadsheet output: False
+            Myopic scheme: False
+  Retain myopic databases: False
+
+-------------------------
+   Citation output status: True
+              NEOS status: False
+    Version output status: False
+
+-------------------------
+   Selected solver status: cbc
+   Solver LP write status: False
+    Pyomo LP write status: True
+
+-------------------------
+          MGA slack value: None
+      MGA # of iterations: None
+     MGA weighting method: None
+**NOTE: If you are performing MGA runs, navigate to the DAT file and make any modifications to the MGA sets before proceeding.
+Please press enter to continue or Ctrl+C to quit.
+Notice: Using the CBC solver interface.
+Continue Operation? [Press enter to continue or CTRL+C to abort]
+
+Solver will write file: scenario01.lp
+
+[    0.02] Reading data files.
+[        ] Creating Temoa model instance.Warning: ('uiuc', 'IMPELC', 2000) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'ABBOTT', 2020) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'TURBINE', 2020) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'NUCLEAR', 2020) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'UL', 2000) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'UL', 2020) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'UH', 2000) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+Warning: ('uiuc', 'UH', 2020) has a specified Efficiency, but does not have any existing install base (ExistingCapacity).
+[    0.22]
+[        ] Solving.Solver log file: '/home/roberto/projects/temoa/data_files/debug_logs/lp_files/tmphy5k_aeo.cbc.log'
+Solver solution file: '/home/roberto/projects/temoa/data_files/debug_logs/lp_files/tmpo3lz1gid.pyomo.soln'
+Solver problem files: ('/home/roberto/projects/temoa/data_files/debug_logs/lp_files/tmpo3lz1gid.pyomo.lp',)
+[    0.24]
+[    0.24] Calculating reporting variables and formatting results.
+[Tue Dec  8 11:18:00 2020]
+Finished job 2.
+2 of 6 steps (33%) done
+Select jobs to execute...
+
+[Tue Dec  8 11:18:00 2020]
+rule make_plots:
+    input: data_files/01_uiuc_scenario01_model/scenario01_OutputLog.log
+    output: figures/scenario01_ind_capacity.png, figures/scenario01_ind_generation.png, figures/scenario01_ind_emissions_co2eq.png, figures/scenario01_ind_emissions_spent-fuel.png, figures/scenario01_ind_emissions_ewaste.png
+    jobid: 3
+    wildcards: scenario=scenario01, sector=ind
+
+[Tue Dec  8 11:18:00 2020]
+rule make_plots:
+    input: data_files/01_uiuc_scenario01_model/scenario01_OutputLog.log
+    output: figures/scenario01_all_capacity.png, figures/scenario01_all_generation.png, figures/scenario01_all_emissions_co2eq.png, figures/scenario01_all_emissions_spent-fuel.png, figures/scenario01_all_emissions_ewaste.png
+    jobid: 5
+    wildcards: scenario=scenario01, sector=all
+
+[Tue Dec  8 11:18:00 2020]
+rule make_plots:
+    input: data_files/01_uiuc_scenario01_model/scenario01_OutputLog.log
+    output: figures/scenario01_elc_capacity.png, figures/scenario01_elc_generation.png, figures/scenario01_elc_emissions_co2eq.png, figures/scenario01_elc_emissions_spent-fuel.png, figures/scenario01_elc_emissions_ewaste.png
+    jobid: 4
+    wildcards: scenario=scenario01, sector=elc
+
+Traceback (most recent call last):
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/ImageFile.py", line 247, in load
+    s = read(self.decodermaxblock)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/PngImagePlugin.py", line 881, in load_read
+    cid, pos, length = self.png.read()
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/PngImagePlugin.py", line 163, in read
+    length = i32(s)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/_binary.py", line 75, in i32be
+    return unpack_from(">I", c, o)[0]
+struct.error: unpack_from requires a buffer of at least 4 bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roberto/github/pride/learn-temoa/uiuc/.snakemake/scripts/tmp15acyl5u.data_parser.py", line 603, in <module>
+    make_plots(output, True)
+  File "/home/roberto/github/pride/learn-temoa/uiuc/.snakemake/scripts/tmp15acyl5u.data_parser.py", line 546, in make_plots
+    save=to_save)
+  File "/home/roberto/github/pride/learn-temoa/uiuc/.snakemake/scripts/tmp15acyl5u.data_parser.py", line 324, in bar_plot
+    (f"{target_folder}{scenario}_{sector}_{variable.lower()}_"
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/pyplot.py", line 859, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/figure.py", line 2311, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/backends/backend_qt5agg.py", line 82, in print_figure
+    self.draw()
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 407, in draw
+    self.figure.draw(self.renderer)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/artist.py", line 41, in draw_wrapper
+    return draw(artist, renderer, *args, **kwargs)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/figure.py", line 1864, in draw
+    renderer, self, artists, self.suppressComposite)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/image.py", line 131, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/artist.py", line 41, in draw_wrapper
+    return draw(artist, renderer, *args, **kwargs)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/text.py", line 723, in draw
+    mtext=mtext)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/cbook/deprecation.py", line 411, in wrapper
+    return func(*inner_args, **inner_kwargs)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 254, in draw_tex
+    Z = texmanager.get_grey(s, size, self.dpi)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/texmanager.py", line 389, in get_grey
+    rgba = mpl.image.imread(os.path.join(self.texcache, pngfile))
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/image.py", line 1492, in imread
+    if isinstance(image, PIL.PngImagePlugin.PngImageFile) else
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/matplotlib/image.py", line 1665, in _pil_png_to_float_array
+    return np.divide(pil_png.convert("RGBA"), 2**8 - 1, dtype=np.float32)
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/Image.py", line 893, in convert
+    self.load()
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/PIL/ImageFile.py", line 253, in load
+    raise OSError("image file is truncated") from e
+OSError: image file is truncated
+[Tue Dec  8 11:18:13 2020]
+Error in rule make_plots:
+    jobid: 5
+    output: figures/scenario01_all_capacity.png, figures/scenario01_all_generation.png, figures/scenario01_all_emissions_co2eq.png, figures/scenario01_all_emissions_spent-fuel.png, figures/scenario01_all_emissions_ewaste.png
+
+RuleException:
+CalledProcessError in line 70 of /home/roberto/github/pride/learn-temoa/uiuc/Snakefile:
+Command 'set -euo pipefail;  /home/roberto/miniconda3/envs/temoa-py3/bin/python /home/roberto/github/pride/learn-temoa/uiuc/.snakemake/scripts/tmp15acyl5u.data_parser.py' returned non-zero exit status 1.
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/snakemake/executors/__init__.py", line 2339, in run_wrapper
+  File "/home/roberto/github/pride/learn-temoa/uiuc/Snakefile", line 70, in __rule_make_plots
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/snakemake/executors/__init__.py", line 560, in _callback
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/snakemake/executors/__init__.py", line 546, in cached_or_run
+  File "/home/roberto/miniconda3/envs/temoa-py3/lib/python3.7/site-packages/snakemake/executors/__init__.py", line 2351, in run_wrapper
+Removing output files of failed job make_plots since they might be corrupted:
+figures/scenario01_all_capacity.png, figures/scenario01_all_generation.png, figures/scenario01_all_emissions_co2eq.png, figures/scenario01_all_emissions_ewaste.png
+[Tue Dec  8 11:18:18 2020]
+Finished job 3.
+3 of 6 steps (50%) done
+[Tue Dec  8 11:18:18 2020]
+Finished job 4.
+4 of 6 steps (67%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/roberto/github/pride/learn-temoa/uiuc/.snakemake/log/2020-12-08T111758.576862.snakemake.log
