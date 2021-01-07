@@ -11,7 +11,4 @@ def test_efficiency_internal():
 
     exp = 0.04842
     obs = h2.efficiency(50)
-    if np.abs(exp - obs) > 1e-3:
-    raise ValueError("Efficincy doesn't work")
-    assert(True)
-    # assert np.abs(exp - obs) < 1e-3
+    assert np.abs(exp - obs) < 1e-3
