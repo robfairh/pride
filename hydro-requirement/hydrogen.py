@@ -12,12 +12,15 @@ def efficiency(th):
     --------
     eta: Thermal-to-electricity conversion efficiency.
     """
-    tc = 27  # C
-    tc += 273  # K
-    th += 273  # K
-    eta = 1-tc/th
-    eta *= 0.68
-    return eta
+    if th > 27:
+        tc = 27  # C
+        tc += 273  # K
+        th += 273  # K
+        eta = 1-tc/th
+        eta *= 0.68
+        return eta
+    else:
+        raise Exception("'th' must be greater than 27 C")
 
 
 def delta_H(Tout, Tin):
