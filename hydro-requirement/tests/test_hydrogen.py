@@ -22,3 +22,20 @@ def test_efficiency_edge():
 
     with pytest.raises(Exception):
         assert efficiency(-273)
+
+
+# ===================================================================
+# Tests for delta_H()
+# ===================================================================
+
+
+def test_delta_H_internal():
+    """ Tests if the function function works correctly for an internal point
+        (temperature = 50 C)
+    """
+
+def test_delta_H_internal():
+    """ Tests if the function function works correctly for an edge case
+        (Tout < Tin)
+    """
+    
