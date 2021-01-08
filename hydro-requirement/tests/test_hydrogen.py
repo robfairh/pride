@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from hydrogen import efficiency
+import hydrogen as h2
 
 # ===================================================================
 # Tests for efficiency()
@@ -12,7 +12,7 @@ def test_efficiency_internal():
         (temperature = 50 C) """
 
     exp = 0.04842
-    obs = efficiency(50)
+    obs = h2.efficiency(50)
     assert np.abs(exp - obs) < 1e-3
 
 
@@ -21,7 +21,7 @@ def test_efficiency_edge():
         (temperature = -273 C) """
 
     with pytest.raises(Exception):
-        assert efficiency(-273)
+        assert h2.efficiency(-273)
 
 
 # ===================================================================
@@ -31,11 +31,12 @@ def test_efficiency_edge():
 
 def test_delta_H_internal():
     """ Tests if the function function works correctly for an internal point
-        (temperature = 50 C)
+        (Tout =  C)
     """
+    h2.delta_H(Tout, Tin)
 
 def test_delta_H_internal():
     """ Tests if the function function works correctly for an edge case
         (Tout < Tin)
     """
-    
+
