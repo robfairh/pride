@@ -37,7 +37,9 @@ def delta_H(Tout, Tin):
 
     if Tout < Tin:
         raise Exception("'Tout' must be greater than 'Tin'")
-    elif Tout < Tin:
+    elif Tout < 25 or Tout > 1000 or Tin < 25 or Tin > 1000:
+        raise Exception("'Tout' and 'Tin' must be greater than 25 C and " \
+                        "smaller than 1000 C")
     else:
         temp = [25, 50, 75, 100, 125, 150, 175, 200, 225, 242.56, 242.56, 250,
                 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550,
@@ -66,9 +68,12 @@ def lte_prod_rate(P, eta):
     see: sepecific energy [kWh(th)/kg-H2]
     """
     see = 60  # kWh(e)/kg-H2
-    see /= eta
-    pr = P/see*1e3
-    return pr, see
+    if eta == 0:
+        raise Exception("'eta' cannot be 0")
+    else:
+        see /= eta
+        pr = P/see*1e3
+        return pr, see
 
 
 def hte_req(P, Te):
@@ -87,17 +92,20 @@ def hte_req(P, Te):
     tds: thermal requirement [kJ/mol]
     """
     R = 8.314  # [J/mol/K]
-
     dg_T = [225, 165]  # [kJ/mol]
     tds_T = [17, 99]  # [kJ/mol]
     temp = [100, 1200]  # [C]
-
-    # dh variation with P is negligible
-    dh = np.interp(Te, temp, dg_T) + np.interp(Te, temp, tds_T)
-    tds = np.interp(Te, temp, tds_T) - R*(Te+273)*np.log(P)/1e3
-    dg = dh - tds  # [kJ/mol]
-
-    return dg, tds
+    if Te < 100 or Te > 1200:
+        raise Exception("'Te' must be greater than 100C and smaller than " \
+                        "1200 C")
+    elif P == 0:
+        raise Exception("'P' must be non-zero")
+    else:
+        # dh variation with P is negligible
+        dh = np.interp(Te, temp, dg_T) + np.interp(Te, temp, tds_T)
+        tds = np.interp(Te, temp, tds_T) - R*(Te+273)*np.log(P)/1e3
+        dg = dh - tds  # [kJ/mol]
+        return dg, tds
 
 
 def hte_power_req(P, To):
