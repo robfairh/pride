@@ -1,5 +1,6 @@
 conda activate temoa-py3
-snakemake --cores=12
+snakemake --delete-all-output --cores=4
+snakemake --cores=4
 
 rm 01_uiuc.sqlite
 sqlite3 01_uiuc.sqlite < 01_uiuc.sql
